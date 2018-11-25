@@ -1,0 +1,26 @@
+package com.arunveersingh.rest.webservices.restfulwebservices.versioning;
+
+public class Name {
+	
+	private String first;
+	private String last;
+	public String getFirst() {
+		return first;
+	}
+	public void setFirst(String first) {
+		this.first = first;
+	}
+	public String getLast() {
+		return last;
+	}
+	public void setLast(String last) {
+		this.last = last;
+	}
+	public Name(String first, String last) {
+		super();
+		this.first = first;
+		this.last = last;
+	}
+	
+
+}
