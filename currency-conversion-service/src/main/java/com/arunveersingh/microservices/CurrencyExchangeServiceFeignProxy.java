@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @FeignClient(name = "currency-exchange-server", url = "localhost:8001")
 @RibbonClient
-public interface CurrencyExchangeServiceProxy {
+public interface CurrencyExchangeServiceFeignProxy {
 
 	@GetMapping("currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversionBean getCurrencyExchangeValue(@PathVariable("from") String from,
