@@ -21,6 +21,16 @@ import com.arunveersingh.weatherforecasting.datamodel.WeatherData;
 import com.arunveersingh.weatherforecasting.service.AccessOpenWeatherMapAPIService;
 import com.arunveersingh.weatherforecasting.utils.DateUtils;
 
+/**
+ * Since this is just a Demo app I am keeping the test cases simple and 
+ * and keeping all of them in a single file. There is a huge scope of improvement
+ * for the test cases which I will be doing as soon as I get time. 
+ * 
+ * 
+ * 
+ * @author arunveersingh9@gmail.com
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class WeatherForecastingAppApplicationTests {
@@ -39,6 +49,9 @@ public class WeatherForecastingAppApplicationTests {
     }
 
 
+    /**
+     * This test invokes actual open weather API
+     */
     @Test
     public void testService() {
 
