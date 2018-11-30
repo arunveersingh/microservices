@@ -23,6 +23,13 @@ import com.arunveersingh.weatherforecasting.datamodel.WeatherData;
 import com.arunveersingh.weatherforecasting.datamodel.WeatherDataPoint;
 import com.arunveersingh.weatherforecasting.exception.WeatherDataNotFound;
 
+/**
+ * This Service is doing the heavy lifting of invoking the openweathermap api
+ * and parsign the response as needed.
+ * 
+ * @author arunveersingh9@gmail.com
+ *
+ */
 @Component
 public class AccessOpenWeatherMapAPIServiceImpl
 	implements AccessOpenWeatherMapAPIService {
@@ -32,6 +39,11 @@ public class AccessOpenWeatherMapAPIServiceImpl
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     * This method invokes the openweathermap restful api and filter the
+     * unwanted data and evaluates the coolest hour of the day. API return data
+     * for 5 days, only for first day is useful so remaining days are discarded.
+     */
     @Override
     public WeatherData invokeOpenWeather(String zipcode) {
 	LocalDate today = getNow();
@@ -81,9 +93,10 @@ public class AccessOpenWeatherMapAPIServiceImpl
 	// populating minimum temperature for the day
 	weatherDataResponse.setMinTemperatureOfTheDay(
 		weatherDataResponse.getList().get(0).getMinTemperature());
-	
+
 	// Coolest Interval of the day
-	weatherDataResponse.setCoolestDataPoint(weatherDataResponse.getList().get(0));
+	weatherDataResponse
+		.setCoolestDataPoint(weatherDataResponse.getList().get(0));
 
 	return weatherDataResponse;
     }
