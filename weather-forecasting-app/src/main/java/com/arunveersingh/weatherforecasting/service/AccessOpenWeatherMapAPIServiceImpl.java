@@ -81,6 +81,9 @@ public class AccessOpenWeatherMapAPIServiceImpl
 	// populating minimum temperature for the day
 	weatherDataResponse.setMinTemperatureOfTheDay(
 		weatherDataResponse.getList().get(0).getMinTemperature());
+	
+	// Coolest Interval of the day
+	weatherDataResponse.setCoolestDataPoint(weatherDataResponse.getList().get(0));
 
 	return weatherDataResponse;
     }

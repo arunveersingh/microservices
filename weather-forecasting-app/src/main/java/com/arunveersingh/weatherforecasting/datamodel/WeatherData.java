@@ -24,6 +24,8 @@ public class WeatherData implements Serializable {
     private City city;
 
     private Double minTemperatureOfTheDay;
+    
+    private WeatherDataPoint coolestDataPoint;
 
     @JsonProperty("dataPoints")
     public ArrayList<WeatherDataPoint> getList() {
@@ -52,10 +54,23 @@ public class WeatherData implements Serializable {
     public Double getMinTemperatureOfTheDay() {
 	return minTemperatureOfTheDay;
     }
+    
+    
+
+    public WeatherDataPoint getCoolestDataPoint() {
+        return coolestDataPoint;
+    }
+
+    @JsonProperty("coolestDataPoint")
+    public void setCoolestDataPoint(WeatherDataPoint weatherDataPoint) {
+        this.coolestDataPoint = weatherDataPoint;
+    }
 
     @Override
     public String toString() {
 	return "WeatherData [list=" + list + ", city=" + city
-		+ ", minTemperatureOfTheDay=" + minTemperatureOfTheDay + "]";
+		+ ", minTemperatureOfTheDay=" + minTemperatureOfTheDay
+		+ ", coolestDataPoint=" + coolestDataPoint + "]";
     }
+
 }
